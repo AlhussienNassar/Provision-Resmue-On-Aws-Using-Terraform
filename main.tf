@@ -40,7 +40,7 @@ resource "aws_instance" "my_ec2" {
   key_name = "test_key"
 
   tags = {
-    Name = "Python-App-EC2"
+    Name = "Resume-EC2"
   }
 }
 
