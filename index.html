@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .container {
+            width: 80%;
+            margin: auto;
+            overflow: hidden;
+        }
+        header {
+            background: #333;
+            color: #fff;
+            padding-top: 30px;
+            min-height: 70px;
+            border-bottom: #bbb 1px solid;
+        }
+        header a {
+            color: #fff;
+            text-decoration: none;
+            text-transform: uppercase;
+            font-size: 16px;
+        }
+        header ul {
+            padding: 0;
+            list-style: none;
+        }
+        header ul li {
+            display: inline;
+            padding: 0 20px 0 20px;
+        }
+        header #branding {
+            float: left;
+        }
+        header #branding h1 {
+            margin: 0;
+        }
+        header nav {
+            float: right;
+            margin-top: 10px;
+        }
+        header .highlight, header .current a {
+            color: #e8491d;
+            font-weight: bold;
+        }
+        header a:hover {
+            color: #ffffff;
+            font-weight: bold;
+        }
+        .button_1 {
+            height: 38px;
+            background: #e8491d;
+            border: none;
+            padding-left: 20px;
+            padding-right: 20px;
+            color: #ffffff;
+        }
+        section#showcase {
+            min-height: 400px;
+            background: url('showcase.jpg') no-repeat 0 -400px;
+            text-align: center;
+            color: #ffffff;
+        }
+        section#showcase h1 {
+            margin-top: 100px;
+            font-size: 55px;
+            margin-bottom: 10px;
+        }
+        section#showcase p {
+            font-size: 20px;
+        }
+        section#newsletter {
+            padding: 15px;
+            color: #ffffff;
+            background: #e8491d
+        }
+        section#newsletter h1 {
+            float: left;
+        }
+        section#newsletter form {
+            float: right;
+            margin-top: 15px;
+        }
+        section#newsletter input[type="email"] {
+            padding: 4px;
+            height: 25px;
+            width: 250px;
+        }
+        /* Boxes */
+        .box {
+            float: left;
+            text-align: center;
+            width: 30%;
+            padding: 10px;
+        }
+        .box img {
+            width: 90px;
+            height: 90px;
+        }
+        /* Sidebar */
+        aside#sidebar {
+            float: right;
+            width: 30%;
+            margin-top: 10px;
+        }
+        aside#sidebar .quote input, aside#sidebar .quote textarea {
+            width: 90%;
+            padding: 5px;
+        }
+        /* Main-col */
+        article#main-col {
+            float: left;
+            width: 65%;
+        }
+        /* Services */
+        ul#services li {
+            list-style: none;
+            padding: 20px;
+            border: #cccccc solid 1px;
+            margin-bottom: 5px;
+            background: #e6e6e6;
+        }
+        footer {
+            padding: 20px;
+            margin-top: 20px;
+            color: #ffffff;
+            background-color: #e8491d;
+            text-align: center;
+        }
+        footer p {
+            margin: 0;
+        }
+        footer a {
+            color: #ffffff;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div id="branding">
+                <h1><span class="highlight">Alhussien</span> Tarek Nassar</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li class="current"><a href="#profile">Profile</a></li>
+                    <li><a href="#education">Education</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#skills">Skills</a></li>
+                    <li><a href="#certificates">Certificates</a></li>
+                    <li><a href="#personal">Personal</a></li>
+                    <li><a href="#languages">Languages</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section id="profile">
+        <div class="container">
+            <h1>Profile</h1>
+            <p>Looking for a challenging role in a reputable organization to utilize my technical skills in the Cloud and virtualization field
+and to enhance my knowledge of new trends in the IT sector, a High level of Adaptability, and I'm very focused.
+</p>
+        </div>
+    </section>
+
+    <section id="education">
+        <div class="container">
+            <h1>Education</h1>
+            <ul id="services">
+                <li>ITI 9-Month Professional Diploma of Cloud Architecture</li>
+                <li>B.Sc. of Computer Science</li>
+                <li> ITI Summer Traning</li>
+                <!-- Add more education details here -->
+            </ul>
+        </div>
+    </section>
+
+    <section id="projects">
+        <div class="container">
+            <h1>Projects</h1>
+            <div class="box">
+                <h3>Windows Server</h3>
+                <h3>Administration Scripted Tools</h3>
+                <h3>Build Multi-Node OpenStack Environment</h3>
+                <h3>Graduation Project</h3>
+
+            </div>
+            <!-- Add more projects here -->
+        </div>
+    </section>
+
+    <section id="skills">
+        <div class="container">
+            <h1>Technical Skills</h1>
+            <ul id="services">
+                <li>Virtualization (Vsphere, HyperV)</li>
+                <li>VMware NSX-T Knowledge</li>
+                <li>Kubernetes</li>
+                <li>Linux Administration I,II</li>
+                <li>Terraform</li>
+                <!-- Add more skills here -->
+            </ul>
+        </div>
+    </section>
+
+    <section id="certificates">
+        <div class="container">
+            <h1>Certificates</h1>
+            <ul id="services">
+                <li>VMware Certified Professional- Data Center Virtualization 2024</li>
+                <!-- Add more certificates here -->
+            </ul>
+        </div>
+    </section>
+
+    <section id="personal">
+        <div class="container">
+            <h1>Personal Skills</h1>
+            <ul id="services">
+                <li>Good Communication Skills</li>
+                <li>Learnable and Good listener</li>
+                <li>High level of Adaptability</li>
+                <!-- Add more personal skills here -->
+            </ul>
+        </div>
+    </section>
+
+    <section id="languages">
+        <div class="container">
+            <h1>Languages</h1>
+            <p>English</p>
+            <p>Arabic</p>
+        </div>
+    </section>
+
+    <footer>
+        <p>Alhussien © 2024</p>
+    </footer>
+</body>
+</html>

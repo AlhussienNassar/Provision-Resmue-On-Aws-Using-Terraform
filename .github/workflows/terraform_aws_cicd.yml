@@ -1,0 +1,82 @@
+name: Terraform_AWS_Python_App
+on:
+  workflow_dispatch:
+    inputs:
+      environment:
+        description: 'Environment to deploy to Development or Production'
+        required: true
+        default: '' # Default value, change as needed
+  
+env:
+  AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+  AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+  AWS_SESSION_TOKEN: ${{ secrets.AWS_SESSION_TOKEN }}
+  SSH_KEY_PATH: ${{ secrets.SSH_PRIVATE_KEY }}
+  APP_PATH: index.html
+
+jobs:
+  build:
+    name: Deploy Application
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+
+  
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: my_cv
+          path: artifacts/
+          
+  infra:
+    name: Provision aws infrastructure using Terraform
+    runs-on: ubuntu-latest
+    outputs:
+      eip: ${{ steps.s7s.outputs.ec2_address }}
+    needs: [ build ]
+    environment: ${{ github.event.inputs.environment }}
+    env:
+      TF_VAR_aws_region: ${{ vars.AWS_REGION }}
+      
+    steps: 
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Download artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: my_cv
+          path: artifacts/
+       
+      - name: Set up Terraform
+        uses: hashicorp/setup-terraform@v1
+      
+      
+      - name: Terraform Init
+        run: terraform init
+      
+      - name: Terraform Plan
+        run: terraform plan
+
+      
+      - name: Terraform Apply
+        run: terraform apply --auto-approve
+
+      - name: Get Instance IP
+        id: ip
+        run: |
+          terraform-bin output -raw instance_public_ip > ip_address.txt
+          echo "ec2_address=$(cat ip_address.txt)" >> $GITHUB_OUTPUT
+
+      - name: copy file via ssh key
+        uses: appleboy/scp-action@v0.1.7
+        with:
+          host: ${{ steps.ip.outputs.ec2_address }}
+          username: 7ssien
+          port: 22
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          source: artifacts/
+          target: /home/7ssien/app
