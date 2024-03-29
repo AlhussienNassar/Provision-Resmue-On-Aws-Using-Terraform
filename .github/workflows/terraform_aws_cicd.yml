@@ -85,10 +85,10 @@ jobs:
           key: ${{ secrets.SSH_KEY_PATH }}
           port: 22
           script: |
-            sudo apt-get -y update
-            sudo apt-get install -y apache2
-            sudo systemctl start apache2
-            sudo systemctl enable apache2
+            
+            sudo yum install -y httpd
+            sudo systemctl start httpd
+            sudo systemctl enable httpd
             cd home
             sudo mv index.html /var/www/html
           
