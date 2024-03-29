@@ -7,10 +7,26 @@ env:
   AWS_SESSION_TOKEN: ${{ secrets.AWS_SESSION_TOKEN }}
   SSH_KEY_PATH: ${{ secrets.SSH_KEY_PATH }}
 
-jobs:      
+jobs:  
+  Test:
+    name: HTML Validate
+    runs-on: ubuntu-latest
+    steps:
+      - name: HTML5Validator
+        uses: Cyb3r-Jak3/html5validator-action
+        with:
+          root: index.html
+
+
+
+
+
+
+
   infra:
     name: Provision My Resmue on AWS infrastructure using Terraform
     runs-on: ubuntu-latest
+    needs: [Test]
     outputs:
       eip: ${{ steps.s7s.outputs.ec2_address }}
 
