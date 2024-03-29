@@ -1,4 +1,4 @@
-name: Terraform_AWS_Python_App
+name: Terraform_AWS_CV
 on:
   workflow_dispatch:
     inputs:
