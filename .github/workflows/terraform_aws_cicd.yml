@@ -1,4 +1,4 @@
-name: Terraform_AWS_CV
+name: Terraform_AWS_CV_CICD
 on:
   workflow_dispatch:
 
