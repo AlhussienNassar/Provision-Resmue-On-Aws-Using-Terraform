@@ -1,4 +1,4 @@
-name: Terraform_AWS_CV_CICD
+name: Terraform_AWS_CICD_MyResmue
 on:
   workflow_dispatch:
 
@@ -11,7 +11,7 @@ env:
 
 jobs:      
   infra:
-    name: Provision aws infrastructure using Terraform
+    name: Provision My Resmue on AWS infrastructure using Terraform
     runs-on: ubuntu-latest
     outputs:
       eip: ${{ steps.s7s.outputs.ec2_address }}
@@ -66,6 +66,5 @@ jobs:
             sudo yum install -y httpd
             sudo systemctl start httpd
             sudo systemctl enable httpd
-            cd home
             sudo mv index.html /var/www/html
           
