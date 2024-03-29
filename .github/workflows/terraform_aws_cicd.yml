@@ -21,10 +21,6 @@ jobs:
 
 
 
-
-
-
-
   infra:
     name: Provision My Resmue on AWS infrastructure using Terraform
     runs-on: ubuntu-latest
